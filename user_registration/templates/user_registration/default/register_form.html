@@ -1,0 +1,14 @@
+<form id="user-reg-form" class="" action="" method="post">
+    {% csrf_token %}
+    
+    {% for field in form %}
+        <div id="in-row{{forloop.counter}}" class="in-row">
+            <div class="in-label"> {{ field.label_tag }} </div>
+            <div class="in-ctrl"> {{ field }} </div>
+            <div class="in-msg"> {{ field.errors.as_text }} </div>
+        </div>
+    {% endfor %}
+    <div id="errors"> {{ form.non_field_errors }} </div>
+    
+    <p><input type="submit" value="Register" /></p>
+</form>

@@ -1,0 +1,1 @@
+Activate your account in {{ key_validity_duration }} days

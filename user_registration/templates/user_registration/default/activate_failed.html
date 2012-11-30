@@ -1,0 +1,13 @@
+<p>Activation failed!</p>
+<ul>
+<li>Activation URL expired.</li>
+<li>Activation URL is invalid (make sure it's the same as in the URL).</li>
+<li>Your account is already activated</li>
+</ul>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

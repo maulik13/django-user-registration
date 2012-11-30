@@ -1,0 +1,9 @@
+Congratulations, {{ username }}
+
+You have registered a new account on {{ site }}. 
+
+You need to acctivate your account by visiting the following link:
+
+http://{{ site }}{% url "activate" activation_key %}
+
+:)
