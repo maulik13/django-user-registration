@@ -76,7 +76,7 @@ class UserRegistration(models.Model):
     Supporting table for storing registration info
     """
     UserModel = get_user_model()
-    user = models.ForeignKey(UserModel, unique=True)
+    user = models.OneToOneField(UserModel)
     activation_key = models.CharField('activation key', max_length=40)
     secret_code = models.CharField('secret code', max_length=10, null=True)
     key_expiry_time = models.DateTimeField('key expiration time')
@@ -88,8 +88,7 @@ class UserRegistration(models.Model):
 
     def is_activation_key_expired(self):
         return self.key_expiry_time < timezone.now()
-    
-    
+       
     def activate_user(self):
         """
         Following conditions should be met:
@@ -104,8 +103,7 @@ class UserRegistration(models.Model):
                 return True
             raise ActivationKeyExpired
         raise UserAlreadyActivated        
-
-    
+   
     def send_activation_email(self, site):
         "send email to the user linked with this registration record"
         ctx_dict = {'username': self.user.username,
