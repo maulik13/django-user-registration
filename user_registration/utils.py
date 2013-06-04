@@ -9,7 +9,7 @@ def get_module_object(path):
     e.g. Fetch a method object: get_module_object('app.backends.default.method')
     """
     i = path.rfind('.')
-    module, attr = path[:i], path[i+1:]
+    module, attr = path[:i], path[i + 1:]
     try:
         mod = import_module(module)
     except ImportError, e:
@@ -27,9 +27,9 @@ def get_model_field_values(model, data_dict):
     """
     model_param_dict = {}
     model_fields = model._meta.get_all_field_names()
-    
+
     for field in model_fields:
         if field in data_dict:
             model_param_dict[field] = data_dict[field]
-            
+
     return model_param_dict
