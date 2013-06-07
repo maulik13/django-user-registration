@@ -20,15 +20,17 @@ Config
 
 Customization
 --------------------
-Customization can be done in the following areas:
+To override configuration variables in appsettings, prefix them with *REG_* and assign new value in settings module.
 
+__e.g. REG_HASH_USER_FIELD = 'email'__
+
+Customization can be done in the following areas:
 
 ##### URLs #####
 Url names are modified in the config module
 
 ##### Templates #####
 Create new templates in the template folder and update their references in the config file
-
 
 ##### Forms #####
 Create a new form in the forms package and then change its reference in config module
